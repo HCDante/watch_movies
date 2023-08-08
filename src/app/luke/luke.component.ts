@@ -13,13 +13,23 @@ export class LukeComponent implements OnChanges {
   cantidadPeliculasMostradas: number | undefined;
 
   ngOnChanges() {
+    if (!this.peliculas || !this.peliculas.length ) {
+      this.peliculas = [];
+
+      return
+    };
     if (this.peliculas && this.categoriaSeleccionada !== undefined) {
       console.log('Esto es de pelis', this.peliculas);
       this.peliculasFiltradas = this.peliculas.filter(
         pelicula => pelicula.genre_ids.includes(this.categoriaSeleccionada)
+
       );
 
       this.cantidadPeliculasMostradas = this.peliculasFiltradas.length;
+    }
+    else {
+      this.peliculasFiltradas = this.peliculas;
+      this.cantidadPeliculasMostradas = this.peliculas.length;
     }
   }
 }
