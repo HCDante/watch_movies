@@ -1,16 +1,18 @@
-<h1>I Am Your Father</h1>
-<div>
-  <!-- {{temp_categoriaSeleccionada}} -->
-</div>
-<div>
-  <select (change)="onCategoriaSeleccionada($event)">
-    <option value="">Seleccione una categoría</option>
-    <option value="28">Acción</option>
-    <option value="12">Aventura</option>
-    <option value="16">Animación</option>
-    <option value="35">Comedia</option>
-    <!-- More :v -->
-  </select>
+<div class="container">
+  <h1>I Am Your Father</h1>
+  <div>
+    <!-- {{temp_categoriaSeleccionada}} -->
+  </div>
+  <div>
+    <select class="form-select" (change)="onCategoriaSeleccionada($event)">
+      <option value="">Seleccione una categoría</option>
+      <option value="28">Acción</option>
+      <option value="12">Aventura</option>
+      <option value="16">Animación</option>
+      <option value="35">Comedia</option>
+      <!-- More :v -->
+    </select>
+  </div>
 </div>
 
 <app-luke [peliculas]="peliculas" [categoriaSeleccionada]="categoriaSeleccionada"></app-luke>
