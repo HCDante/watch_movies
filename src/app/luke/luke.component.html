@@ -1,5 +1,6 @@
 <p>May the force be with you</p>
-<div *ngIf="peliculasFiltradas">
+<div class="container" *ngIf="peliculasFiltradas">
+  
   <h2>Películas en la categoría {{ categoriaSeleccionada }}</h2>
   <p>{{ cantidadPeliculasMostradas }} Películas encontradas</p>
   <!-- <ul>
@@ -9,13 +10,13 @@
       
     </li>
   </ul> -->
-  <div class="row d-flex justify-content-center">
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 col-xxl-4 text-center">
-      <div *ngFor="let pelicula of peliculasFiltradas" class="card" style="width: 18rem;">
-        <img src="https://image.tmdb.org/t/p/w500/{{pelicula.poster_path}}" class="card-img-top" alt="...">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let pelicula of peliculasFiltradas">
+      <div class="card">
+        <img class="poster img-fluid rounded smaller-image" src="https://image.tmdb.org/t/p/w500/{{pelicula.poster_path}}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ pelicula.title }}</h5>
-          <p class="card-text">{{ pelicula.overview }}</p>
+          <p class="card-text tex-center">{{ pelicula.overview }}</p>
         </div>
       </div>
     </div>
