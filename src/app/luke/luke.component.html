@@ -1,0 +1,12 @@
+<p>May the force be with you</p>
+<div *ngIf="peliculasFiltradas">
+  <h2>Películas en la categoría {{ categoriaSeleccionada }}</h2>
+  <p>{{ cantidadPeliculasMostradas }} Películas encontradas</p>
+  <ul>
+    <li *ngFor="let pelicula of peliculasFiltradas">
+      <div>{{ pelicula.title }}</div>
+      <div>{{ pelicula.overview }}</div>
+      <!-- Detalles7 -->
+    </li>
+  </ul>
+</div>
