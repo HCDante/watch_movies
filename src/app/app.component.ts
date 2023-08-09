@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'watch_movies';
   peliculas: any[] = [];
   categoriaSeleccionada: number | undefined;
+  cantidad: number | undefined;
 
   constructor(private service: MoviesApiService) { }
 
@@ -24,6 +25,11 @@ export class AppComponent {
   onCategoriaSeleccionada(event: any) {
     const categoria = parseInt(event.target.value, 10);
     this.categoriaSeleccionada = categoria || undefined;
+  }
+
+  //Función para recibir el evento
+  getNum(Pepe:number){//Su nombre debe ser el mismo que el del evento y el tipo de dato debe ser el mismo que el del evento
+    this.cantidad = Pepe; //Aquí se recibe el valor que se emitió y se guarda en una variable
   }
 
 }
