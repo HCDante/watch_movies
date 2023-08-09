@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LukeComponent } from './luke/luke.component';
+import { MoviesApiService } from './movies-api.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +16,8 @@ import { LukeComponent } from './luke/luke.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [MoviesApiService],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
