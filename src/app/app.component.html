@@ -1,11 +1,10 @@
 
 <div class="container">
-  <!-- <h1>I Am Your Father</h1> -->
-  <!-- {{temp_categoriaSeleccionada}} -->
+  <h1 class="d-flex justify-content-center">Explora tus peliculas favoritas</h1>
   
 </div>
 <div class="container">
-  <select (change)="onCategoriaSeleccionada($event)">
+  <select class="form-select" (change)="onCategoriaSeleccionada($event)">
     <option value="">Seleccione una categoría</option>
     <option value="28">Acción</option>
     <option value="12">Aventura</option>
@@ -15,8 +14,10 @@
   </select>
 </div>
 
+<p>{{ cantidad }} Películas encontradas</p> <!--Variable cantidad que se actualiza con el evento eventLuke -->
+
 
 <app-luke [peliculas]="peliculas" [categoriaSeleccionada]="categoriaSeleccionada" (eventLuke) = "getNum($event)"></app-luke>
 <!-- Etiqueta con el componente Luke -->
 
-<p>{{ cantidad }} Películas encontradas</p> <!-- Variable cantidad que se actualiza con el evento eventLuke -->
+

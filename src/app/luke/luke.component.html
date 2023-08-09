@@ -1,21 +1,10 @@
-<!-- <p>May the force be with you</p> -->
 
-<!-- <h2>Películas en la categoría {{ categoriaSeleccionada }}</h2> -->
-
-
-<div class="container" *ngIf="peliculasFiltradas">
+<div class="container d-flex justify-content-center" *ngIf="peliculasFiltradas">
   <div class="container" *ngIf="peliculasFiltradas">
     <h2>Películas en la categoría {{ getGender() }}</h2>
+    <p>{{ cantidadPeliculasMostradas }} Películas encontradas</p> 
 
 
-    <!-- <p>{{ cantidadPeliculasMostradas }} Películas encontradas</p> -->
-    <!-- <ul>
-    <li *ngFor="let pelicula of peliculasFiltradas">
-      <div>{{ pelicula.title }}</div>
-      <div>{{ pelicula.overview }}</div>
-      
-    </li>
-  </ul> -->
     <div class="row">
       <div class="col-md-3" *ngFor="let pelicula of peliculasFiltradas">
         <div class="card">

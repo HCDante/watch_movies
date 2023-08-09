@@ -19,7 +19,7 @@ export class AppComponent {
     this.service.cargarPeliculasPopulares().subscribe((response: any) => {
     this.peliculas = response.results;
     });
-    // console.log("No sé :v", this.peliculas);
+    console.log("No sé :v", this.cantidad);
   }
   
   onCategoriaSeleccionada(event: any) {
@@ -28,8 +28,9 @@ export class AppComponent {
   }
 
   //Función para recibir el evento
-  getNum(Pepe:number){//Su nombre debe ser el mismo que el del evento y el tipo de dato debe ser el mismo que el del evento
-    this.cantidad = Pepe; //Aquí se recibe el valor que se emitió y se guarda en una variable
+  getNum(cantidad: number){//Su nombre debe ser el mismo que el del evento y el tipo de dato debe ser el mismo que el del evento
+    this.cantidad = cantidad; //Aquí se recibe el valor que se emitió y se guarda en una variable
+    console.log(this.cantidad);
   }
 
 }

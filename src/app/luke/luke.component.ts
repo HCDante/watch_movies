@@ -18,7 +18,10 @@ export class LukeComponent implements OnChanges {
   constructor(private service: MoviesApiService) { }
   nameGender: string | undefined;
 
-  ngOnChanges() {
+  ngOnChanges(change: SimpleChanges) {
+   this.categoriaSeleccionada = change["categoriaSeleccionada"]?.currentValue || undefined;
+   console.log("change",this.categoriaSeleccionada);
+   
     if (!this.peliculas || !this.peliculas.length) {
       this.peliculas = [];
 
@@ -37,15 +40,17 @@ export class LukeComponent implements OnChanges {
       this.peliculasFiltradas = this.peliculas;
       this.cantidadPeliculasMostradas = this.peliculas.length;
     }
+   this.getNumHijo();
     // this.service.getGender().subscribe((response: any) => {
     //   this.nameGender = response.results(this.categoriaSeleccionada);
     //   console.log("Este es el género", this.nameGender)
     //   });
-
   }
 // Función para emitir el evento
-  getNum(){//Se puede poner cualquier nombre
+  getNumHijo(){//Se puede poner cualquier nombre
    this.eventLuke.emit(this.cantidadPeliculasMostradas);//Dentro va el valor que se quiere emitir
+   console.log("peliculas evento hijo", this.cantidadPeliculasMostradas);
+   
   }
 
   getGender(){
