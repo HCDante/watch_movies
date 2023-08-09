@@ -15,4 +15,10 @@
   </div>
 </div>
 
-<app-luke [peliculas]="peliculas" [categoriaSeleccionada]="categoriaSeleccionada"></app-luke>
+<p>{{ cantidad }} Películas encontradas</p> <!--Variable cantidad que se actualiza con el evento eventLuke -->
+
+
+<app-luke [peliculas]="peliculas" [categoriaSeleccionada]="categoriaSeleccionada" (eventLuke) = "getNum($event)"></app-luke>
+<!-- Etiqueta con el componente Luke -->
+
+

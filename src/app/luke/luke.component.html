@@ -1,58 +1,23 @@
 <p>May the force be with you</p>
 <div class="container" *ngIf="peliculasFiltradas">
-
+  
   <h2>Películas en la categoría {{ categoriaSeleccionada }}</h2>
   <p>{{ cantidadPeliculasMostradas }} Películas encontradas</p>
   <!-- <ul>
-<div class="container text-center">
-  <p>May the force be with you</p>
-  <div *ngIf="peliculasFiltradas">
-    <h2>Películas en la categoría {{ categoriaSeleccionada }}</h2>
-    <p>{{ cantidadPeliculasMostradas }} Películas encontradas</p>
-    <!-- <ul>
     <li *ngFor="let pelicula of peliculasFiltradas">
       <div>{{ pelicula.title }}</div>
       <div>{{ pelicula.overview }}</div>
       
     </li>
   </ul> -->
-  <div class="row d-flex justify-content-center">
-    <div *ngFor="let pelicula of peliculasFiltradas" class="col-sm-12 col-md-6 col-lg-6 col-xl-4 col-xxl-4 text-center py-4">
-      <div class="card" style="width: 18rem;">
-        <img src="https://image.tmdb.org/t/p/w500/{{pelicula.poster_path}}" class="card-img-top" alt="...">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let pelicula of peliculasFiltradas">
+      <div class="card">
+        <img class="poster img-fluid rounded smaller-image" src="https://image.tmdb.org/t/p/w500/{{pelicula.poster_path}}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ pelicula.title }}</h5>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_">Más Info</button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal_{{pelicula.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ pelicula.title }}</h1>
-                <div class="modal fade" id="exampleModal_{{pelicula.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                  aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{pelicula.title}}</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        {{ pelicula.overview }}
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p class="card-text tex-center">{{ pelicula.overview }}</p>
         </div>
-        </div>
-        
       </div>
     </div>
   </div>
