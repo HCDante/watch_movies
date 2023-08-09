@@ -1,7 +1,5 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { EventEmitter, Output } from '@angular/core';
-import { MoviesApiService } from '../movies-api.service';
-
 @Component({
   selector: 'app-luke',
   templateUrl: './luke.component.html',
@@ -14,13 +12,12 @@ export class LukeComponent implements OnChanges {
 
   peliculasFiltradas: any[] | undefined;
   cantidadPeliculasMostradas: number | undefined;
-
-  constructor(private service: MoviesApiService) { }
+  
   nameGender: string | undefined;
 
   ngOnChanges(change: SimpleChanges) {
    this.categoriaSeleccionada = change["categoriaSeleccionada"]?.currentValue || undefined;
-   console.log("change",this.categoriaSeleccionada);
+   console.log("change",change);
    
     if (!this.peliculas || !this.peliculas.length) {
       this.peliculas = [];
@@ -40,7 +37,10 @@ export class LukeComponent implements OnChanges {
       this.peliculasFiltradas = this.peliculas;
       this.cantidadPeliculasMostradas = this.peliculas.length;
     }
-   this.getNumHijo();
+    setTimeout(() => {
+      this.getNumHijo();
+    })
+    
     // this.service.getGender().subscribe((response: any) => {
     //   this.nameGender = response.results(this.categoriaSeleccionada);
     //   console.log("Este es el género", this.nameGender)
